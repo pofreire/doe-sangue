@@ -9,8 +9,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   </head>
   <body>
     <header>
@@ -24,7 +23,7 @@
 
     <section class="form hide">
       <h2>Entre na lista de doadores</h2>
-      <form action="/">
+      <form action="/" method="POST">
         <input type="text" name="name" placeholder="Nome comleto" />
         <input type="text" name="email" placeholder="Email" />
         <input type="text" name="blood" placeholder="Tipo sanguíneo" />
@@ -36,18 +35,16 @@
       <h2>Últimos <span>doadores</span></h2>
 
       <section class="donors">
+        {% for donor in donors %}
         <div class="donor">
-          <div class="blood">B+</div>
-          <p>Pedro Freire</p>
+          <div class="blood">{{donor.blood}}</div>
+          <p>{{donor.name}}</p>
         </div>
-
-        <div class="donor">
-          <div class="blood">X-</div>
-          <p>Jarbas</p>
-        </div>
+        {%endfor%}
       </section>
     </main>
 
-    <footer>Com amor ...</footer>
+    <footer>Com ❤ ...</footer>
+    <script src="script.js"></script>
   </body>
 </html>
